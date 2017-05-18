@@ -1,0 +1,46 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Lista Pazienti</h1>
+
+
+<div class="row">
+<table>
+  <thead>
+    <tr>
+      <th>Nome&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+      <th>Cognome&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+      <th>Email&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+      <th>&nbsp;&nbsp;&nbsp;&nbsp;</th>
+      <th>Telefono&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @pazientes.sort_by(&:cognome).each do |paziente| %>
+    <% if paziente!=current_paziente%>  
+<tr>
+        <td><%= paziente.nome %></td>
+        
+        <td><%= paziente.cognome%></td>
+        <td><%= paziente.email%></td>
+	<td>&nbsp;</td>
+        <td><%= paziente.telefono %></td>
+	<td>&nbsp;</td>
+        <td><%= link_to ' Mostra  ', paziente %></td>
+	<td>&nbsp;</td>
+        <td><%= link_to ' Modifica  ', edit_paziente_path(paziente) %></td>
+	<td>&nbsp;</td>
+        <td><%= link_to ' Elimina', paziente, method: :delete, data: { confirm: 'Sei sicuro?' } %></td>
+	<td>&nbsp;</td>
+	
+      </tr>
+    <% end %>
+<%end%>
+  </tbody>
+</table>
+<%= will_paginate %>
+
+<br>
+
+<%= link_to 'Nuovo Paziente', new_paziente_path %>

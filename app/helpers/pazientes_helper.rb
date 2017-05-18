@@ -1,0 +1,2 @@
+module PazientesHelper
+end

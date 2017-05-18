@@ -1,0 +1,2 @@
+module CartellaClinicasHelper
+end

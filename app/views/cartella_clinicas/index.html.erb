@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Lista Cartelle Cliniche</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Diagnosi&nbsp;&nbsp;</th>
+      
+      <th>Valutazione anatomica&nbsp;&nbsp;</th>
+      
+      <th>Valutazione funzionale&nbsp;&nbsp;</th>
+
+
+      <th>Iniziale finale&nbsp;&nbsp;</th>
+     
+      <th>Anamnesi&nbsp;&nbsp;</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cartella_clinicas.each do |cartella_clinica| %>
+      <tr>
+        <td><%= cartella_clinica.diagnosi %></td>
+        <td><%= cartella_clinica.valutazione_anatomica %></td>
+        <td><%= cartella_clinica.valutazione_funzionale %></td>
+        <td><%= cartella_clinica.iniziale_finale %></td>
+        <td><%= cartella_clinica.anamnesi %></td>
+        <td><%= link_to 'Mostra', cartella_clinica %></td>
+	<td>&nbsp;</td>
+        <td><%= link_to 'Modifica', edit_cartella_clinica_path(cartella_clinica) %></td>
+	<td>&nbsp;</td>
+        <td><%= link_to 'Elimina', cartella_clinica, method: :delete, data: { confirm: 'Sei sicuro?' } %></td>
+	<td>&nbsp;</td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Nuova Cartella clinica', '#' %>

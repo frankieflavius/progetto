@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  diagnosi: MyText
+  valutazione_anatomica: MyText
+  valutazione_funzionale: MyText
+  iniziale_finale: MyText
+  anamnesi: MyText
+
+two:
+  diagnosi: MyText
+  valutazione_anatomica: MyText
+  valutazione_funzionale: MyText
+  iniziale_finale: MyText
+  anamnesi: MyText
