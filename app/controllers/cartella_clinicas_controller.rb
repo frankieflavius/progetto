@@ -1,3 +1,4 @@
+require 'will_paginate/array'
 class CartellaClinicasController < ApplicationController
 
   # GET /cartella_clinicas
@@ -5,7 +6,7 @@ class CartellaClinicasController < ApplicationController
   def index
     @paziente = Paziente.find(session[:test_id])
     @cartella_clinicas = CartellaClinica.all.reject{|cartella_clinica| cartella_clinica.paziente_id!=session[:test_id]}
-    
+    @cartella_clinicas = @cartella_clinicas.paginate(page: params[:page], :per_page => 15)
   end
 
   # GET /cartella_clinicas/1
