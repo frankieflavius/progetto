@@ -1,0 +1,36 @@
+<div class="container">
+      <h1>Nuovo Paziente</h1>
+
+<form class="new_paziente" id="new_paziente" action="/pazientes" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="JPIHQBfwbqjQ06oBDWyJJ4w5TWR8oLehZhIXq+WZ+l3kXTGxDuQ35sCZyAsaIDJ3SKyUQ+vahFIE/Kth03p+dg==" />
+    <div id="error_explanation">
+      <h2>1 error prohibited this paziente from being saved:</h2>
+
+      <ul>
+        <li>Password can&#39;t be blank</li>
+      </ul>
+    </div>
+
+  <div class="field">
+    <label for="paziente_nome">Nome</label><br>
+    <input type="text"  name="paziente[nome]" id="paziente_nome" />
+  </div>
+  <div class="field">
+    <label for="paziente_cognome">Cognome</label><br>
+    <input type="text"  name="paziente[cognome]" id="paziente_cognome" />
+  </div>
+  <div class="field">
+    <label for="paziente_email">Email</label><br>
+    <input type="text"  name="paziente[email]" id="paziente_email" />
+  </div>
+  <div class="field">
+    <label for="paziente_telefono">Telefono</label><br>
+    <input type="text"  name="paziente[telefono]" id="paziente_telefono" />
+  </div>
+<div class="field">
+    <input type="hidden" name="paziente[password]" id="paziente_password" value="$2a$10$Py4rotOL3oM3nGUu8ATTq.O7zaZasi0zoe4TSUDrTg4UpOzbNv4sO" />
+  </div>
+  <div class="actions">
+    <input type="submit" name="commit" value="Create Paziente" />
+  </div>
+</form>
+

@@ -5,8 +5,7 @@ before_action :set_paziente, only: [:show, :edit, :update, :destroy]
   # GET /pazientes
   # GET /pazientes.json
   def index
-
-   @pazientes = Paziente.paginate(page: params[:page], :per_page => 15)
+   @pazientes = Paziente.all.paginate(page: params[:page], :per_page => 15)
     
   end
 

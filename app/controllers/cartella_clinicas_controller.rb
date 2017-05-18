@@ -3,13 +3,15 @@ class CartellaClinicasController < ApplicationController
   # GET /cartella_clinicas
   # GET /cartella_clinicas.json
   def index
-    @cartella_clinicas = CartellaClinica.all
+    @paziente = Paziente.find(session[:test_id])
+    @cartella_clinicas = CartellaClinica.all.reject{|cartella_clinica| cartella_clinica.paziente_id!=session[:test_id]}
+    
   end
 
   # GET /cartella_clinicas/1
   # GET /cartella_clinicas/1.json
   def show
-    @cartella_clinica=CartellaClinica.paginate(page: params[:page], :per_page =>3)
+    @cartella_clinica=CartellaClinica.find(params[:id])
     @id=session[:test_id]
   end
 
@@ -20,10 +22,8 @@ class CartellaClinicasController < ApplicationController
 
   # GET /cartella_clinicas/1/edit
   def edit
-    @id=session[:test_id]
-    id = params[:id]
-    @paziente = Paziente.find(@id)
-    @cartellaclinica = CartellaClinica.find(id)
+    @cartella_clinica = CartellaClinica.find(params[:id])
+    
   end
 
   # POST /cartella_clinicas
@@ -47,8 +47,7 @@ class CartellaClinicasController < ApplicationController
   # PATCH/PUT /cartella_clinicas/1
   # PATCH/PUT /cartella_clinicas/1.json
   def update
-    id = params[:id]
-    id_paziente = params[:paziente_id]
+    @cartella_clinica = CartellaClinica.find(params[:id])
     respond_to do |format|
       if @cartella_clinica.update(cartella_clinica_params)
         format.html { redirect_to @cartella_clinica, notice: 'La Cartella clinica è stata aggiornata con successo.' }
@@ -80,6 +79,6 @@ class CartellaClinicasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def cartella_clinica_params
-      params.require(:cartella_clinica).permit(:diagnosi, :valutazione_anatomica, :valutazione_funzionale, :iniziale_finale, :anamnesi, :paziente_id)
+      params.require(:cartella_clinica).permit(:diagnosi, :valutazione_anatomica, :valutazione_funzionale, :iniziale_finale, :anamnesi, :paziente_id, :data, :chiave)
     end
 end

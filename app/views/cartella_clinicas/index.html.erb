@@ -1,20 +1,14 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Lista Cartelle Cliniche</h1>
+<h1>Lista Cartelle Cliniche di <%=@paziente.nome%> <%= @paziente.cognome%></h1>
 
 <table>
   <thead>
     <tr>
-      <th>Diagnosi&nbsp;&nbsp;</th>
+      <th>Data&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
       
-      <th>Valutazione anatomica&nbsp;&nbsp;</th>
+      <th>Chiave&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
       
-      <th>Valutazione funzionale&nbsp;&nbsp;</th>
-
-
-      <th>Iniziale finale&nbsp;&nbsp;</th>
-     
-      <th>Anamnesi&nbsp;&nbsp;</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -22,22 +16,19 @@
   <tbody>
     <% @cartella_clinicas.each do |cartella_clinica| %>
       <tr>
-        <td><%= cartella_clinica.diagnosi %></td>
-        <td><%= cartella_clinica.valutazione_anatomica %></td>
-        <td><%= cartella_clinica.valutazione_funzionale %></td>
-        <td><%= cartella_clinica.iniziale_finale %></td>
-        <td><%= cartella_clinica.anamnesi %></td>
-        <td><%= link_to 'Mostra', cartella_clinica %></td>
+        <td><%= cartella_clinica.data %></td>
+        <td><%= cartella_clinica.chiave %></td>
+        <td><%= link_to 'Mostra', paziente_cartella_clinica_path(cartella_clinica.paziente.id,cartella_clinica.id) %></td>
 	<td>&nbsp;</td>
-        <td><%= link_to 'Modifica', edit_cartella_clinica_path(cartella_clinica) %></td>
+        <td><%= link_to 'Modifica', edit_cartella_clinica_path(cartella_clinica.id) %></td>
 	<td>&nbsp;</td>
-        <td><%= link_to 'Elimina', cartella_clinica, method: :delete, data: { confirm: 'Sei sicuro?' } %></td>
+        <td><%= link_to 'Elimina', paziente_cartella_clinica_path(cartella_clinica.paziente.id,cartella_clinica.id), method: :delete, data: { confirm: 'Sei sicuro?' } %></td>
 	<td>&nbsp;</td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
+  
 <br>
+<%= link_to 'Indietro', pazientes_path %>
 
-<%= link_to 'Nuova Cartella clinica', '#' %>

@@ -19,9 +19,9 @@
   <strong>Telefono:</strong>
   <%= @paziente.telefono %>
 </p>
-<td><%= link_to 'CartellaClinica', new_paziente_cartella_clinica_path(1) %></td>
+<td><%= link_to 'NuovaCartellaClinica', new_paziente_cartella_clinica_path(1) %></td>
  
-	<td><%= link_to 'MostraCartellaClinica',  paziente_cartella_clinica_path(:paziente_id => @paziente.id) %></td>
+	<td><%= link_to 'MostraCartelleCliniche',  paziente_cartella_clinicas_path(@paziente.id) %></td>
 
 <%= link_to 'Modifica', edit_paziente_path(@paziente) %> |
 <%= link_to 'Indietro', pazientes_path %><td>

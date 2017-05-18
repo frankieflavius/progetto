@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170506165453) do
+ActiveRecord::Schema.define(version: 20170518201819) do
 
   create_table "cartella_clinicas", force: :cascade do |t|
     t.text     "diagnosi"
@@ -22,6 +22,8 @@ ActiveRecord::Schema.define(version: 20170506165453) do
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
     t.integer  "paziente_id"
+    t.string   "data"
+    t.string   "chiave"
   end
 
   add_index "cartella_clinicas", ["paziente_id"], name: "index_cartella_clinicas_on_paziente_id"

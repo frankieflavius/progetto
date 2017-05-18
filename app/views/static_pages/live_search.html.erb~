@@ -1,0 +1,15 @@
+<link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet'  type='text/css'> 
+<div class="standard">
+<table class="table table-bordered table-hover">
+<th class="standard">Nome</th>
+<th class="standard"> Telefono </th>
+<th class="standard"> Opzioni </th>
+<% @paziente.find_each do |paziente| %>
+<tr>
+<td class="standard"> <%= paziente.nome %></td>
+<td class="standard"> <%= paziente.telefono %></td>
+<td class="standard"> <a href="http://localhost:3000/pazientes/<%= paziente.id %>">Mostra Paziente </a> </td>
+</tr>
+<% end %>
+</table>
+</div>

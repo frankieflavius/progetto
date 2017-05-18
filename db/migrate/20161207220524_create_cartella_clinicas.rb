@@ -7,7 +7,7 @@ class CreateCartellaClinicas < ActiveRecord::Migration
       t.text :iniziale_finale
       t.text :anamnesi
 
-      t.timestamps null: false
+      t.timestamps null: true
     end
   end
 end

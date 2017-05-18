@@ -1,0 +1,27 @@
+
+<% provide(:title, "Fisioterapia Manni") %>
+
+<% if flash[:info].blank? %>
+<% else %> 
+<div class="flash">
+</div>
+<% end %>
+ <link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet'  type='text/css'> 	
+    <div class="center jumbotron">
+
+<%= link_to image_tag("fisioterapia.jpg", alt: "Fisioterapia Manni logo") %>
+
+<div class="standard">
+
+<form id="live-search-form" method="post" action="/live_search">
+ <div class="actions"> 
+ Nome Paziente:
+  <input id="big-search-box" name="nome_p" type="text"/>
+  Cognome Paziente:
+  <input id="big-search-box" name="cognome_p" type="text"/>
+  
+  <input type="submit" name="commit" value="Cerca" class="btn btn-primary" data-disable-with="Caricamento.." />
+  </div>
+</form>
+</div>
+ 

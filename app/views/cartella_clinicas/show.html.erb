@@ -1,36 +1,43 @@
-<p id="notice"><%= notice %></p>
-<% @cartella_clinica.where(paziente_id: @id).find_each do |cartella_clinica|%>
+
 <p>
   <br>
   <strong>Diagnosi:</strong>
-  <%= cartella_clinica.diagnosi %>
+  <%= @cartella_clinica.diagnosi %>
 </p>
 
 <p>
   <strong>Valutazione anatomica:</strong>
-  <%= cartella_clinica.valutazione_anatomica %>
+  <%= @cartella_clinica.valutazione_anatomica %>
 </p>
 
 <p>
   <strong>Valutazione funzionale:</strong>
-  <%= cartella_clinica.valutazione_funzionale %>
+  <%= @cartella_clinica.valutazione_funzionale %>
 </p>
 
 <p>
   <strong>Iniziale finale:</strong>
-  <%= cartella_clinica.iniziale_finale %>
+  <%= @cartella_clinica.iniziale_finale %>
 </p>
 
 <p>
   <strong>Anamnesi:</strong>
-  <%= cartella_clinica.anamnesi %>
+  <%= @cartella_clinica.anamnesi %>
 </p>
 
-<%= will_paginate %>
+<p>
+  <strong>Data:</strong>
+  <%= @cartella_clinica.data %>
+</p>
 
-<%= link_to 'Modifica', edit_cartella_clinica_path(cartella_clinica.id) %> |
-<%= link_to 'Indietro', pazientes_path %>
+<p>
+  <strong>Chiave:</strong>
+  <%= @cartella_clinica.chiave %>
+</p>
 
-<% end %>
+
+
+<%= link_to 'Modifica', edit_cartella_clinica_path(@cartella_clinica.id) %> |
+<%= link_to 'Indietro', cartella_clinicas_path %>
 
 

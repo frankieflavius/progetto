@@ -1,4 +1,4 @@
-<%= form_for([@paziente, @cartella_clinica]) do |f| %>
+<%= form_for @cartella_clinica do |f| %>
   <% if @cartella_clinica.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@cartella_clinica.errors.count, "error") %> prohibited this cartella_clinica from being saved:</h2>
@@ -30,6 +30,14 @@
   <div class="field">
     <%= f.label :anamnesi %><br>
     <%= f.text_area :anamnesi %>
+  </div>
+   <div class="field">
+    <%= f.label :data %><br>
+    <%= f.text_area :data %>
+  </div>
+  <div class="field">
+    <%= f.label :chiave %><br>
+    <%= f.text_area :chiave %>
   </div>
   <div class="actions">
     <%= f.submit %>
