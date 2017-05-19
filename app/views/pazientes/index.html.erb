@@ -30,7 +30,7 @@
 	<td>&nbsp;</td>
         <td><%= link_to ' Mostra  ', paziente %></td>
 	<td>&nbsp;</td>
-        <td><%= link_to ' Modifica  ', edit_paziente_path(paziente) %></td>
+        <td><%= link_to ' Modifica  ', edit_paziente_path(paziente.id) %></td>
 	<td>&nbsp;</td>
         <td><%= link_to ' Elimina', paziente, method: :delete, data: { confirm: 'Sei sicuro?' } %></td>
 	<td>&nbsp;</td>
