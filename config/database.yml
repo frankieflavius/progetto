@@ -12,7 +12,7 @@ default: &default
 development:
   <<: *default
   database: db/my_database_development
-  host: ""
+  host: "localhost"
   username: franco
   password: franco_password
 # Warning: The database defined as "test" will be erased and
@@ -25,6 +25,6 @@ test:
 production:
   <<: *default
   database: db/my_database_production
-  host: ""
+  host: "localhost"
   username: franco
   password: franco_password
