@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
-root 'static_pages#home'  
+
 resources :cartella_clinicas
   resources :pazientes do                                             	  
      resources :cartella_clinicas
   end 
   
-  
+  root 'static_pages#home'  
   get  'pazientes#index' => 'pazientes#index'
   get  'cartella_clinicas#show' => 'cartella_clinicas#show'
   get    '/login'   => 'sessions#new'
