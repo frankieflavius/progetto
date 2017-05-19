@@ -79,6 +79,6 @@ before_action :set_paziente, only: [:show, :edit, :update, :destroy]
     
     # Never trust parameters from the scary internet, only allow the white list through.
     def paziente_params
-      params.require(:paziente).permit(:id,:nome, :cognome, :email, :telefono, :password)
+      params.require(:paziente).permit(:nome, :cognome, :email, :telefono, :password)
     end
 end
