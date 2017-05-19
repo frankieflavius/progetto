@@ -13,20 +13,23 @@
 
 ActiveRecord::Schema.define(version: 20170518201819) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "cartella_clinicas", force: :cascade do |t|
     t.text     "diagnosi"
     t.text     "valutazione_anatomica"
     t.text     "valutazione_funzionale"
     t.text     "iniziale_finale"
     t.text     "anamnesi"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.integer  "paziente_id"
     t.string   "data"
     t.string   "chiave"
   end
 
-  add_index "cartella_clinicas", ["paziente_id"], name: "index_cartella_clinicas_on_paziente_id"
+  add_index "cartella_clinicas", ["paziente_id"], name: "index_cartella_clinicas_on_paziente_id", using: :btree
 
   create_table "pazientes", force: :cascade do |t|
     t.string   "nome"
@@ -36,6 +39,8 @@ ActiveRecord::Schema.define(version: 20170518201819) do
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.string   "password_digest"
+    t.boolean  "admin"
   end
 
+  add_foreign_key "cartella_clinicas", "pazientes"
 end

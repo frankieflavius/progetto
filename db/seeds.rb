@@ -10,5 +10,4 @@ User.create!(nome:  "Administrator",
              email: "manni@mail.it",
              password:              "fisioterapiamanni",
              password_confirmation: "fisioterapiamanni",
-             admin: true,
              )
